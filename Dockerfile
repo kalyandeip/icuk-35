@@ -1,8 +1,6 @@
-# Pull base image 
-From tomcat:8-jre8
-
-# Maintainer 
-MAINTAINER "valaxytech@gmail.com" 
-COPY build/libs/yourapp.war /usr/local/tomcat/webapps/ROOT.war
-
+From tomcat:10.1-jdk17
+WORKDIR /usr/local/tomcat/webapps/
+COPY webapp/target/webapp.war/usr/local/tomcat/webapps/webapp.war
+EXPOSE port 8080
+CMD ["catalina.sh","run"]
 
